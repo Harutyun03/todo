@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Input from './components/Input.jsx/Input'
 import Button from './components/Button.jsx/Button'
@@ -10,7 +9,8 @@ function App() {
   
   const [text,settext] = useState('')
   const [todo,settodo] = useState([])
-
+  const [edits, setEdit] = useState(false)
+  const [titles, setTitles] = useState('')
 
 
   const setdata = (e) => {
@@ -28,11 +28,10 @@ function App() {
             id : Date.now(),
             title : text,
             isDone : false,
+            isediting : false
           }
         ]
       })
-
-      settext('')
     }
  }
 
@@ -54,6 +53,23 @@ function App() {
       }))
   }
 
+
+
+  let Edit = () => {
+    setEdit(true)
+}
+
+let Exit = () => {
+    if(titles.trim() === ''){
+        alert('mi ban gri')
+    }else{
+        setEdit(false)
+        if (titles.trim()) {
+            return title
+        }
+    }
+}
+
   return (
     <>
     <section>
@@ -62,7 +78,7 @@ function App() {
             <Input value={text} changeValue={settext}/>
             <Button addtodos={addtodos}/>
         </form>
-            <Header todo={todo}  remove={remove} change={change}/>
+            <Header todo={todo}  remove={remove} change={change} edit={Edit} exit={Exit} edits={edits}/>
     </section>
     </>
   )

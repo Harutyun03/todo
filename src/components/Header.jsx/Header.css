@@ -1,14 +1,29 @@
 li{
     list-style: none;
     padding: 20px 10px;
+    max-width: 500px;
+    margin-right: 170px;
+    /* border: 2px solid black; */
 }
 
 .box{
-    max-width: 300px;
+    max-width: 100%;
     border-radius: 25px;
     background-color: white;
+    text-align: center;
 }
 
 span{
     font-size: 20px;
+    text-align: center;
+     border: 1px solid black;
+    padding: 5px 15px;
 }
+
+
+
+
+.btn1{
+    margin-left: 20px;
+}
+
